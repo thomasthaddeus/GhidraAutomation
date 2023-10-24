@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Set names for the scripts and target directory
+PYTHON_SCRIPT="decompile_cli.py"
+GHIDRA_SCRIPT="ExportDecompiledCode.java"
+TARGET_DIR="/usr/local/bin/decompile_tools"
+
+# Check if the scripts exist
+if [ ! -f "$PYTHON_SCRIPT" ] || [ ! -f "$GHIDRA_SCRIPT" ]; then
+    echo "Error: One or both script files not found!"
+    exit 1
+fi
+
+# Create target directory if it doesn't exist
+mkdir -p "$TARGET_DIR"
+
+# Copy the scripts into the target directory
+cp "$PYTHON_SCRIPT" "$TARGET_DIR"
+cp "$GHIDRA_SCRIPT" "$TARGET_DIR"
+
+# Give execute permissions to the Python script
+chmod +x "$TARGET_DIR/$PYTHON_SCRIPT"
+
+echo "Scripts have been copied to $TARGET_DIR"

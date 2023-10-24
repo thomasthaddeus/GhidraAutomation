@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "code-decompiler-cli"
+version = "0.1.0"
+description = "A CLI tool for decompiling binaries using Ghidra."
+authors = ["Thaddeus Thomas <thaddeus.r.thomas@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+# Add other dependencies here, e.g.,
+# some-library = "^1.2.3"
+
+[tool.poetry.dev-dependencies]
+# Development dependencies, e.g.,
+# pytest = "^6.0"
+
+[[tool.poetry.scripts]]
+decompile-cli = "decompile_cli:main"
+config-manager = "config_manager:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
